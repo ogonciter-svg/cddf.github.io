@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Послуги - Centre de Droit Français</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        /* ============================================ */
+        /* HEADER */
+        /* ============================================ */
+        header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #D4AF37;
+            flex: 1;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-left: auto;
+            padding-right: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #D4AF37;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .language-switcher button {
+            background: transparent;
+            border: 2px solid #D4AF37;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .language-switcher button:hover,
+        .language-switcher button.active {
+            background: #D4AF37;
+            color: #000;
+        }
+
+        /* ============================================ */
+        /* HAMBURGER MENU */
+        /* ============================================ */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #D4AF37;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ============================================ */
+        /* MOBILE MENU */
+        /* ============================================ */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-menu ul li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 500;
+            display: block;
+            padding: 1rem;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu ul li a:hover,
+        .mobile-menu ul li a:active {
+            color: #D4AF37;
+            border-left-color: #D4AF37;
+            padding-left: 1.5rem;
+        }
+
+        .mobile-menu .language-switcher {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            padding-top: 1rem;
+            border-top: 2px solid #D4AF37;
+            margin-top: 2rem;
+        }
+
+        .mobile-menu .language-switcher button {
+            padding: 0.8rem 1.8rem;
+            font-size: 1.1rem;
+        }
+
+        /* ============================================ */
+        /* HERO SECTION */
+        /* ============================================ */
+        .services-hero {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 150px 2rem 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-hero::before {
+            content: '⚖️';
+            position: absolute;
+            font-size: 30rem;
+            opacity: 0.03;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -55%) rotate(5deg); }
+        }
+
+        .services-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #D4AF37;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-hero p {
+            font-size: 1.4rem;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .online-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: #000;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 5px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .online-badge::before {
+            content: '🌐';
+            font-size: 1.5rem;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ============================================ */
+        /* SERVICES SECTION */
+        /* ============================================ */
+        .services-section {
+            padding: 100px 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-block {
+            margin-bottom: 120px;
+            position: relative;
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            border: 3px solid #D4AF37;
+        }
+
+        .service-header:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+        }
+
+        .service-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: left 0.7s;
+        }
+
+        .service-header:hover::before {
+            left: 100%;
+        }
+
+        .service-number {
+            font-size: 8rem;
+            font-weight: bold;
+            color: rgba(212, 175, 55, 0.15);
+            position: absolute;
+            top: -20px;
+            right: 40px;
+            line-height: 1;
+        }
+
+        .service-title-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-category {
+            display: inline-block;
+            background: #D4AF37;
+            color: #000;
+            padding: 0.7rem 2rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #D4AF37;
+        }
+
+        .service-subtitle {
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+
+        .expand-indicator {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: #D4AF37;
+            transition: transform 0.3s;
+            z-index: 3;
+        }
+
+        .service-header.expanded .expand-indicator {
+            transform: rotate(180deg);
+        }
+
+        /* SERVICE CONTENT */
+        .service-content {
+            background: white;
+            border-radius: 0 0 30px 30px;
+            margin-top: -20px;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            border: 3px solid transparent;
+            border-top: none;
+        }
+
+        .service-content.expanded {
+            max-height: 5000px;
+            padding: 3rem;
+            border-color: #D4AF37;
+        }
+
+        .service-intro {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(244, 208, 63, 0.05));
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            border-left: 5px solid #D4AF37;
+        }
+
+        .service-intro h3 {
+            color: #000;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-intro p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+
+        .target-audience {
+            background: #000;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .target-audience h4 {
+            color: #D4AF37;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .target-audience p {
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+
+        /* MODULES GRID */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .module-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #D4AF37, #F4D03F);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .module-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .module-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: #D4AF37;
+        }
+
+        .module-card h4 {
+            color: #000;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .module-icon {
+            font-size: 2rem;
+        }
+
+        .module-card ul {
+            list-style: none;
+        }
+
+        .module-card li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .module-card li:last-child {
+            border-bottom: none;
+        }
+
+        .module-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #D4AF37;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* CONSULTING ITEMS */
+        .consulting-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .consulting-item {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 2px solid #e0e0e0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consulting-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent);
+            transform: translate(50%, -50%);
+            transition: all 0.4s ease;
+        }
+
+        .consulting-item:hover {
+            border-color: #D4AF37;
+            transform: translateX(10px);
+            box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .consulting-item:hover::after {
+            width: 200px;
+            height: 200px;
+        }
+
+        .consulting-item h4 {
+            color: #000;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .consulting-number {
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .consulting-item p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .consulting-item ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .consulting-item li {
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #666;
+        }
+
+        .consulting-item li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #D4AF37;
+            font-weight: bold;
+        }
+
+        /* INFO BOXES */
+        .info-box {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border: 3px solid #D4AF37;
+        }
+
+        .info-box h3 {
+            color: #D4AF37;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+        }
+
+        .info-item strong {
+            display: block;
+            color: #D4AF37;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item span {
+            color: #e0e0e0;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+            padding: 80px 2rem;
+            text-align: center;
+            border-radius: 30px;
+            margin: 80px auto;
+            max-width: 1200px;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            color: #000;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: #000;
+            color: #D4AF37;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: #1a1a1a;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-top: 3px solid #D4AF37;
+        }
+
+/* ============================================ */
+        /* RESPONSIVE */
+        /* ============================================ */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 0;
+            }
+
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .nav-center {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+
+            .mobile-menu {
+                display: block !important;
+            }
+
+            .services-hero {
+                padding: 140px 2rem 70px;
+            }
+
+            .services-hero::before {
+                font-size: 18rem;
+                opacity: 0.05;
+            }
+
+            .services-hero h1 {
+                font-size: 2.8rem;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+            }
+
+            .services-hero p {
+                font-size: 1.15rem;
+                line-height: 1.6;
+                padding: 0 1rem;
+            }
+
+            .online-badge {
+                font-size: 1rem;
+                padding: 1rem 2.2rem;
+                margin-top: 1.5rem;
+            }
+
+            .services-section {
+                padding: 60px 1.5rem;
+            }
+
+            .service-block {
+                margin-bottom: 80px;
+            }
+
+            .service-header {
+                padding: 2.5rem 1.8rem;
+                border-radius: 20px;
+            }
+
+            .service-category {
+                font-size: 0.75rem;
+                padding: 0.6rem 1.5rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .service-title {
+                font-size: 1.9rem;
+                line-height: 1.3;
+                margin-bottom: 1rem;
+            }
+
+            .service-subtitle {
+                font-size: 1.05rem;
+                line-height: 1.6;
+            }
+
+            .service-number {
+                font-size: 5.5rem;
+                right: 15px;
+                top: 10px;
+            }
+
+            .expand-indicator {
+                font-size: 1.8rem;
+                bottom: 15px;
+                right: 20px;
+            }
+
+            .service-content.expanded {
+                padding: 2rem 1.5rem;
+                border-radius: 0 0 20px 20px;
+            }
+
+            .service-intro {
+                padding: 2rem 1.5rem;
+                border-radius: 15px;
+                margin-bottom: 2.5rem;
+            }
+
+            .service-intro h3 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+
+            .service-intro p {
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+
+            .target-audience {
+                padding: 1.8rem 1.5rem;
+                border-radius: 15px;
+                margin: 2rem 0;
+            }
+
+            .target-audience h4 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            .target-audience p {
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .module-card {
+                padding: 2rem 1.5rem;
+                border-radius: 18px;
+            }
+
+            .module-card h4 {
+                font-size: 1.4rem;
+                margin-bottom: 1.2rem;
+                flex-wrap: wrap;
+            }
+
+            .module-icon {
+                font-size: 1.8rem;
+            }
+
+            .module-card li {
+                font-size: 1rem;
+                padding: 0.9rem 0;
+                padding-left: 2rem;
+                line-height: 1.6;
+            }
+
+            .consulting-grid {
+                gap: 2rem;
+            }
+
+            .consulting-item {
+                padding: 2rem 1.5rem;
+                border-radius: 18px;
+            }
+
+            .consulting-item h4 {
+                font-size: 1.4rem;
+                margin-bottom: 1rem;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+
+            .consulting-number {
+                width: 38px;
+                height: 38px;
+                font-size: 1.1rem;
+            }
+
+            .consulting-item p {
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+
+            .consulting-item li {
+                font-size: 1rem;
+                padding: 0.7rem 0;
+                line-height: 1.6;
+            }
+
+            .info-box {
+                padding: 2rem 1.5rem;
+                border-radius: 18px;
+                margin: 2.5rem 0;
+            }
+
+            .info-box h3 {
+                font-size: 1.4rem;
+                margin-bottom: 1.2rem;
+                flex-wrap: wrap;
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+            }
+
+            .info-item {
+                padding: 1.5rem;
+                border-radius: 12px;
+                text-align: left;
+            }
+
+            .info-item strong {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .info-item span {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .cta-section {
+                padding: 60px 2rem;
+                border-radius: 20px;
+                margin: 60px 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 1.2rem;
+            }
+
+            .cta-section p {
+                font-size: 1.15rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+
+            .btn {
+                padding: 1.1rem 2.5rem;
+                font-size: 1.1rem;
+                border-radius: 40px;
+            }
+
+            footer {
+                padding: 2rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-hero {
+                padding: 130px 1.5rem 60px;
+            }
+
+            .services-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .services-hero p {
+                font-size: 1.05rem;
+            }
+
+            .online-badge {
+                font-size: 0.95rem;
+                padding: 0.9rem 1.8rem;
+            }
+
+            .service-title {
+                font-size: 1.6rem;
+            }
+
+            .service-subtitle {
+                font-size: 1rem;
+            }
+
+            .service-number {
+                font-size: 4.5rem;
+                right: 10px;
+            }
+
+            .service-intro h3 {
+                font-size: 1.4rem;
+            }
+
+            .module-card h4 {
+                font-size: 1.3rem;
+            }
+
+            .consulting-item h4 {
+                font-size: 1.3rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.9rem;
+            }
+
+            .cta-section p {
+                font-size: 1.05rem;
+            }
+
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span>Centre de Droit Français</span>
+            </div>
+            
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-translate="nav_home">Головна</a></li>
+                    <li><a href="page3.html" data-translate="nav_services">Послуги</a></li>
+                    <li><a href="page4.html" data-translate="nav_rdv">Запис</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button onclick="changeLanguage('uk')" class="active" id="lang-uk">UK</button>
+                    <button onclick="changeLanguage('fr')" id="lang-fr">FR</button>
+                </div>
+            </div>
+
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <!-- MOBILE MENU -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html" data-translate="nav_home" onclick="toggleMobileMenu()">Головна</a></li>
+                <li><a href="page3.html" data-translate="nav_services" onclick="toggleMobileMenu()">Послуги</a></li>
+                <li><a href="page4.html" data-translate="nav_rdv" onclick="toggleMobileMenu()">Запис</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button onclick="changeLanguage('uk')" id="lang-uk-mobile">UK</button>
+                <button onclick="changeLanguage('fr')" id="lang-fr-mobile">FR</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="services-hero">
+        <h1 data-translate="services_hero_title">Послуги</h1>
+        <p data-translate="services_hero_text">Професійна підтримка та освіта у сфері французького та європейського права</p>
+        <div class="online-badge" data-translate="online_badge">Онлайн та Офлайн формат</div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-section">
+        
+        <!-- SERVICE 1: COURSES -->
+        <div class="service-block">
+            <div class="service-header" onclick="toggleServiceContent(this)">
+                <span class="service-number">01</span>
+                <div class="service-title-wrapper">
+                    <span class="service-category" data-translate="category_courses">КУРСИ</span>
+                    <h2 class="service-title" data-translate="service1_title">Курси підвищення кваліфікації</h2>
+                    <p class="service-subtitle" data-translate="service1_subtitle">Практика застосування права ЄС: кейси, алгоритми, рішення</p>
+                </div>
+                <span class="expand-indicator">▼</span>
+            </div>
+
+            <div class="service-content">
+                <div class="service-intro">
+                    <h3 data-translate="service1_intro_title">Про програму</h3>
+                    <p data-translate="service1_intro_p1">Європейська сертифікована програма від навчального центру Centre de Droit Français (Франція) орієнтована на фахівців, залучених до роботи з європейською тематикою та питаннями Європейського Союзу.</p>
+                    <p data-translate="service1_intro_p2">Метою програми є формування додаткових спеціальних компетентностей, що охоплюють опанування інституційних, правових та економічних механізмів Європейського Союзу.</p>
+                </div>
+
+                <div class="target-audience">
+                    <h4 data-translate="target_audience_title">Цільова аудиторія</h4>
+                    <p data-translate="target_audience_text">Викладачі, державні службовці, юристи, економісти, аналітики, експерти та інші фахівці, які працюють у сфері європейської інтеграції та потребують поглибленої професійної підготовки для виконання завдань у межах євроінтеграційної політики держави.</p>
+                </div>
+
+                <h3 style="font-size: 2rem; color: #000; margin: 3rem 0 2rem; text-align: center;" data-translate="modules_title">Модулі програми</h3>
+
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <h4><span class="module-icon">📚</span><span data-translate="module1_title">Модуль 1</span></h4>
+                        <p style="color: #D4AF37; font-weight: 600; margin-bottom: 1rem;" data-translate="module1_subtitle">Поглиблене європейське право та секторальні політики</p>
+                        <ul>
+                            <li data-translate="module1_item1">Поглиблене інституційне право ЄС</li>
+                            <li data-translate="module1_item2">Секторальні спори в праві ЄС</li>
+                            <li data-translate="module1_item3">Європейське економічне право</li>
+                            <li data-translate="module1_item4">ЄС у міжнародних відносинах</li>
+                            <li data-translate="module1_item5">Кліматична політика та Європейський зелений курс</li>
+                            <li data-translate="module1_item6">Право цифрового ринку ЄС (DMA, DSA, AI Act)</li>
+                        </ul>
+                    </div>
+
+                    <div class="module-card">
+                        <h4><span class="module-icon">⚖️</span><span data-translate="module2_title">Модуль 2</span></h4>
+                        <p style="color: #D4AF37; font-weight: 600; margin-bottom: 1rem;" data-translate="module2_subtitle">Практика економічного права та політик ЄС</p>
+                        <ul>
+                            <li data-translate="module2_item1">Право економічного та валютного союзу</li>
+                            <li data-translate="module2_item2">Теорія інтеграції</li>
+                            <li data-translate="module2_item3">Європейське лобіювання</li>
+                            <li data-translate="module2_item4">Право внутрішнього ринку: ключові досьє</li>
+                            <li data-translate="module2_item5">Європейське конкурентне право</li>
+                            <li data-translate="module2_item6">Європейське податкове право</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3><span>📋</span><span data-translate="program_info_title">Інформація про програму</span></h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong data-translate="info_volume">Обсяг:</strong>
+                            <span data-translate="info_heure">кредити ЄКТС (90 годин)</span>
+                        </div>
+                        <div class="info-item">
+                            <strong data-translate="info_format">Формат:</strong>
+                            <span data-translate="info_format_online">Дистанційний (ZOOM)</span>
+                        </div>
+                        <div class="info-item">
+                            <strong data-translate="info_document">Документ:</strong>
+                            <span data-translate="info_certificate">Європейський сертифікат про підвищення кваліфікації(Франція)</span>
+                        </div>
+						 <div class="info-item">
+                            <strong data-translate="info_coordinant">Координатор програми:</strong>
+                            <span data-translate="info_alina">Аліна Гончарова</span>
+                        </div>
+						     <div class="info-item">
+							<strong data-translate="info_telephone">Телефон:</strong>
+                            <span data-translate="info_numero">Україна:+380669605822 Франція:+33768655519</span>
+                        </div>
+						     <div class="info-item">
+							<strong data-translate="info_email">Електронна пошта:</strong>
+                            <span data-translate="info_mail">cddf.contact@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICE 2: CONSULTING -->
+        <div class="service-block">
+            <div class="service-header" onclick="toggleServiceContent(this)">
+                <span class="service-number">02</span>
+                <div class="service-title-wrapper">
+                    <span class="service-category" data-translate="category_consulting">КОНСУЛЬТАЦІЇ</span>
+                    <h2 class="service-title" data-translate="service2_title">Консультаційна та навчальна діяльність</h2>
+                    <p class="service-subtitle" data-translate="service2_subtitle">Персональний супровід у вирішенні ваших питань</p>
+                </div>
+                <span class="expand-indicator">▼</span>
+            </div>
+
+            <div class="service-content">
+                <div class="service-intro">
+                    <h3 data-translate="service2_intro_title">Навчальний підхід</h3>
+                    <p data-translate="service2_intro_text">Я не просто вирішую ваші проблеми - я навчаю вас розуміти французьке право, щоб ви могли впевнено приймати рішення самостійно.</p>
+                </div>
+
+                <div class="consulting-grid">
+                    <div class="consulting-item">
+                        <h4>
+                            <span class="consulting-number">1</span>
+                            <span data-translate="consulting1_title">Навчання міграційному маршруту</span>
+                        </h4>
+                        <p data-translate="consulting1_text">Я навчу аналізувати свій профіль та визначати оптимальний тип візи або дозволу на проживання.</p>
+                        <ul>
+                            <li data-translate="consulting1_item1">Принципи оцінки шансів та ризиків</li>
+                            <li data-translate="consulting1_item2">Вибір шляху, що відповідає вашим цілям</li>
+                            <li data-translate="consulting1_item3">Стратегічне планування міграції</li>
+                        </ul>
+                    </div>
+
+                    <div class="consulting-item">
+                        <h4>
+                            <span class="consulting-number">2</span>
+                            <span data-translate="consulting2_title">Навчання підготовки документів</span>
+                        </h4>
+                        <p data-translate="consulting2_text">Ми розбираємо структуру досьє, типові помилки та критерії прийняття рішень.</p>
+                        <ul>
+                            <li data-translate="consulting2_item1">Розуміння вимог інстанцій</li>
+                            <li data-translate="consulting2_item2">Підготовка коректного пакета документів</li>
+                            <li data-translate="consulting2_item3">Уникнення типових помилок</li>
+                        </ul>
+                    </div>
+
+                    <div class="consulting-item">
+                        <h4>
+                            <span class="consulting-number">3</span>
+                            <span data-translate="consulting3_title">Робота зі складними випадками</span>
+                        </h4>
+                        <p data-translate="consulting3_text">Я навчу будувати стратегію легалізації.</p>
+                        <ul>
+                            <li data-translate="consulting3_item1">Аналіз відмов та їх подолання</li>
+                            <li data-translate="consulting3_item2">Зміна статусу або продовження перебування</li>
+                        </ul>
+                    </div>
+
+                    <div class="consulting-item">
+                        <h4>
+                            <span class="consulting-number">4</span>
+                            <span data-translate="consulting4_title">Професійна траєкторія у Франції</span>
+                        </h4>
+                        <p data-translate="consulting4_text">Ми розбираємо дозволи на роботу, стажування, трудові контракти та професійні режими.</p>
+                        <ul>
+                            <li data-translate="consulting4_item1">Розуміння системи працевлаштування</li>
+                            <li data-translate="consulting4_item2">Статуси salarié, talent та інші</li>
+                            <li data-translate="consulting4_item3">Стратегічне планування кар'єри</li>
+                        </ul>
+                    </div>
+
+                    <div class="consulting-item">
+                        <h4>
+                            <span class="consulting-number">5</span>
+                            <span data-translate="consulting5_title">Навчання для підприємців</span>
+                        </h4>
+                        <p data-translate="consulting5_text">Я пояснюю, як створити приватного підприємця, обрати правову форму та аргументувати бізнес-проєкт.</p>
+                        <ul>
+                            <li data-translate="consulting5_item1">Створення micro-entrepreneur</li>
+                            <li data-translate="consulting5_item2">Вибір правової форми бізнесу</li>
+                            <li data-translate="consulting5_item3">Аргументація бізнес-проєкту</li>
+                        </ul>
+                    </div>
+					                            <li data-translate="consulting5_item4">Залучаю досвідчених адвокатів за потреби</li>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2 data-translate="cta_title">Готові розпочати?</h2>
+        <p data-translate="cta_text">Зв'яжіться зі мною для детальної консультації та обговорення ваших потреб</p>
+        <a href="page4.html" class="btn" data-translate="btn_contact">Записатися на консультацію</a>
+    </section>
+
+    <footer>
+        <p data-translate="footer_text">© 2026 Centre de Droit Français. Усі права захищені.</p>
+    </footer>
+
+    <script>
+        // ============================================
+        // TOGGLE MOBILE MENU
+        // ============================================
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // ============================================
+        // TOGGLE SERVICE CONTENT
+        // ============================================
+        function toggleServiceContent(header) {
+            const content = header.nextElementSibling;
+            const allHeaders = document.querySelectorAll('.service-header');
+            const allContents = document.querySelectorAll('.service-content');
+            
+            // Close all other services
+            allHeaders.forEach(h => {
+                if (h !== header) {
+                    h.classList.remove('expanded');
+                }
+            });
+            allContents.forEach(c => {
+                if (c !== content) {
+                    c.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle current service
+            header.classList.toggle('expanded');
+            content.classList.toggle('expanded');
+        }
+
+        // ============================================
+        // TRANSLATIONS
+        // ============================================
+        const translations = {
+            uk: {
+                nav_home: "Головна",
+                nav_services: "Послуги",
+                nav_rdv: "Запис",
+                services_hero_title: "Послуги",
+                services_hero_text: "Професійна підтримка та освіта у сфері французького та європейського права",
+                online_badge: "Онлайн та Офлайн формат",
+                category_courses: "КУРСИ",
+                service1_title: "Курси підвищення кваліфікації",
+                service1_subtitle: "Практика застосування права ЄС: кейси, алгоритми, рішення",
+                service1_intro_title: "Про програму",
+                service1_intro_p1: "Європейська сертифікована програма від навчального центру Centre de Droit Français (Франція) орієнтована на фахівців, залучених до роботи з європейською тематикою та питаннями Європейського Союзу.",
+                service1_intro_p2: "Метою програми є формування додаткових спеціальних компетентностей, що охоплюють опанування інституційних, правових та економічних механізмів Європейського Союзу.",
+                target_audience_title: "Цільова аудиторія",
+                target_audience_text: "Викладачі, державні службовці, юристи, економісти, аналітики, експерти та інші фахівці, які працюють у сфері європейської інтеграції та потребують поглибленої професійної підготовки для виконання завдань у межах євроінтеграційної політики держави.",
+                modules_title: "Модулі програми",
+                module1_title: "Модуль 1",
+                module1_subtitle: "Поглиблене європейське право та секторальні політики",
+                module1_item1: "Поглиблене інституційне право ЄС",
+                module1_item2: "Секторальні спори в праві ЄС",
+                module1_item3: "Європейське економічне право",
+                module1_item4: "ЄС у міжнародних відносинах",
+                module1_item5: "Кліматична політика та Європейський зелений курс",
+                module1_item6: "Право цифрового ринку ЄС (DMA, DSA, AI Act)",
+                module2_title: "Модуль 2",
+                module2_subtitle: "Практика економічного права та політик ЄС",
+                module2_item1: "Право економічного та валютного союзу",
+                module2_item2: "Теорія інтеграції",
+                module2_item3: "Європейське лобіювання",
+                module2_item4: "Право внутрішнього ринку: ключові досьє",
+                module2_item5: "Європейське конкурентне право",
+                module2_item6: "Європейське податкове право",
+                program_info_title: "Інформація про програму",
+                info_volume: "Обсяг:",
+                info_format: "Формат:",
+				info_heure: "кредити ЄКТС (90 годин)",
+                info_format_online: "Дистанційний (ZOOM)",
+                info_document: "Документ:",
+                info_certificate: "Європейський сертифікат про підвищення кваліфікації (Франція)",
+				info_coordinant: "Координатор програми:",
+				info_alina: "Аліна Гончарова",
+				info_telephone: "Телефон:",
+				info_numero: "Україна:+380669605822 Франція:+33768655519" , 
+				info_email: "Електронна пошта:",
+				info_mail: " cddf.contact@gmail.com",
+                category_consulting: "КОНСУЛЬТАЦІЇ",
+                service2_title: "Консультаційна та навчальна діяльність",
+                service2_subtitle: "Персональний супровід у вирішенні ваших питань",
+                service2_intro_title: "Навчальний підхід",
+                service2_intro_text: "Я не просто вирішую ваші проблеми - я навчаю вас розуміти французьке право, щоб ви могли впевнено приймати рішення самостійно.",
+                consulting1_title: "Навчання міграційному маршруту",
+                consulting1_text: "Я навчу аналізувати свій профіль та визначати оптимальний тип візи або дозволу на проживання.",
+                consulting1_item1: "Принципи оцінки шансів та ризиків",
+                consulting1_item2: "Вибір шляху, що відповідає вашим цілям",
+                consulting1_item3: "Стратегічне планування міграції",
+                consulting2_title: "Навчання підготовки документів",
+                consulting2_text: "Ми розбираємо структуру досьє, типові помилки та критерії прийняття рішень.",
+                consulting2_item1: "Розуміння вимог інстанцій",
+                consulting2_item2: "Підготовка коректного пакета документів",
+                consulting2_item3: "Уникнення типових помилок",
+                consulting3_title: "Робота зі складними випадками",
+                consulting3_text: "Я навчу будувати стратегію легалізації.",
+                consulting3_item1: "Аналіз відмов та їх подолання",
+                consulting3_item2: "Зміна статусу або продовження перебування",
+                consulting3_item3: "Впевнене прийняття рішень",
+                consulting4_title: "Професійна траєкторія у Франції",
+                consulting4_text: "Ми розбираємо дозволи на роботу, стажування, трудові контракти та професійні режими.",
+                consulting4_item1: "Розуміння системи працевлаштування",
+                consulting4_item2: "Статуси salarié, talent та інші",
+                consulting4_item3: "Стратегічне планування кар'єри",
+                consulting5_title: "Навчання для підприємців",
+                consulting5_text: "Я пояснюю, як створити приватного підприємця, обрати правову форму та аргументувати бізнес-проєкт.",
+                consulting5_item1: "Створення micro-entrepreneur",
+                consulting5_item2: "Вибір правової форми бізнесу",
+                consulting5_item3: "Аргументація бізнес-проєкту",
+                consulting5_item4: "Залучаю досвідчених адвокатів за потреби",
+                cta_title: "Готові розпочати?",
+                cta_text: "Зв'яжіться зі мною для детальної консультації та обговорення ваших потреб",
+                btn_contact: "Записатися на консультацію",
+                footer_text: "© 2026 Centre de Droit Français. Усі права захищені."
+            },
+            fr: {
+                nav_home: "Accueil",
+                nav_services: "Services",
+                nav_rdv: "Rendez-vous",
+                services_hero_title: "Services",
+                services_hero_text: "Soutien professionnel et formation en droit français et européen",
+                online_badge: "Format online et offline",
+                category_courses: "FORMATIONS",
+                service1_title: "Formations de perfectionnement",
+                service1_subtitle: "Pratique de l'application du droit de l'UE : cas, algorithmes, décisions",
+                service1_intro_title: "À propos du programme",
+                service1_intro_p1: "Programme européen certifié du centre de formation Centre de Droit Français (France) destiné aux professionnels impliqués dans les thématiques européennes et les questions de l'Union européenne.",
+                service1_intro_p2: "L'objectif du programme est de développer des compétences spéciales supplémentaires couvrant la maîtrise des mécanismes institutionnels, juridiques et économiques de l'Union européenne.",
+                target_audience_title: "Public cible",
+                target_audience_text: "Enseignants, fonctionnaires, juristes, économistes, analystes, experts et autres professionnels travaillant dans le domaine de l'intégration européenne et nécessitant une formation professionnelle approfondie pour accomplir des tâches dans le cadre de la politique d'intégration européenne de l'État.",
+                modules_title: "Modules du programme",
+                module1_title: "Module 1",
+                module1_subtitle: "Droit européen approfondi et politiques sectorielles",
+                module1_item1: "Droit institutionnel approfondi de l'UE",
+                module1_item2: "Litiges sectoriels en droit de l'UE",
+                module1_item3: "Droit économique européen",
+                module1_item4: "L'UE dans les relations internationales",
+                module1_item5: "Politique climatique et Pacte vert européen",
+                module1_item6: "Droit du marché numérique de l'UE (DMA, DSA, AI Act)",
+                module2_title: "Module 2",
+                module2_subtitle: "Pratique du droit économique et des politiques de l'UE",
+                module2_item1: "Droit de l'union économique et monétaire",
+                module2_item2: "Théorie de l'intégration",
+                module2_item3: "Lobbying européen",
+                module2_item4: "Droit du marché intérieur : dossiers clés",
+                module2_item5: "Droit européen de la concurrence",
+                module2_item6: "Droit fiscal européen",
+                program_info_title: "Informations sur le programme",
+                info_volume: "Volume :",
+				info_heure: "3 Crédits ECTS (90 heures))",
+                info_format: "Format :",
+                info_format_online: "À distance (ZOOM)",
+                info_document: "Document :",
+                info_certificate: "Certificat européen de perfectionnement professionneL (France)",
+				info_coordinant: "Coordinateur du programme: ",
+				info_alina: "Alina Goncharova",
+				info_telephone: "Téléphone :" ,
+				info_numero: "Ukraine:+380669605822 France:+33768655519 ",
+				info_email: "E-mail : ",
+				info_mail: "cddf.contact@gmail.com" ,
+                service2_title: "Activité de conseil et de formation",
+                service2_subtitle: "Accompagnement personnalisé dans la résolution de vos questions ",
+                service2_intro_title: "Approche pédagogique",
+                service2_intro_text: "Je ne résous pas seulement vos problèmes - je vous apprends à comprendre le droit français pour que vous puissiez prendre des décisions en toute confiance de manière autonome.",
+                consulting1_title: "Formation au parcours migratoire",
+                consulting1_text: "Je vous apprendrai à analyser votre profil et à déterminer le type de visa ou de titre de séjour optimal.",
+                consulting1_item1: "Principes d'évaluation des chances et des risques",
+                consulting1_item2: "Choix du parcours correspondant à vos objectifs",
+                consulting1_item3: "Planification stratégique de la migration",
+                consulting2_title: "Formation à la préparation des documents",
+                consulting2_text: "Nous analysons la structure du dossier, les erreurs typiques et les critères de décision.",
+                consulting2_item1: "Compréhension des exigences des instances",
+                consulting2_item2: "Préparation d'un dossier complet et correct",
+                consulting2_item3: "Évitement des erreurs typiques",
+                consulting3_title: "Traitement des cas complexes",
+                consulting3_text: "Je vous apprendrai à construire une stratégie de régularisation.",
+                consulting3_item1: "Analyse des refus et leur résolution",
+                consulting3_item2: "Changement de statut ou prolongation de séjour",
+                consulting3_item3: "Prise de décision confiante",
+                consulting4_title: "Trajectoire professionnelle en France",
+                consulting4_text: "Nous analysons les autorisations de travail, les stages, les contrats de travail et les régimes professionnels.",
+                consulting4_item1: "Compréhension du système d'emploi",
+                consulting4_item2: "Statuts salarié, talent et autres",
+                consulting4_item3: "Planification stratégique de carrière",
+                consulting5_title: "Formation pour entrepreneurs",
+                consulting5_text: "J'explique comment créer une micro-entreprise, choisir la forme juridique et argumenter un projet commercial.",
+                consulting5_item1: "Création de micro-entrepreneur",
+                consulting5_item2: "Choix de la forme juridique d'entreprise",
+                consulting5_item3: "Argumentation du projet commercial",
+                consulting5_item4: "Recours à des avocats expérimentés si nécessaire",
+                cta_title: "Prêt à commencer ?",
+                cta_text: "Contactez-moi pour une consultation détaillée et discuter de vos besoins",
+                btn_contact: "Prendre rendez-vous",
+                footer_text: "© 2026 Centre de Droit Français. Tous droits réservés."
+            }
+        };
+
+        let currentLang = 'uk';
+
+        // ============================================
+        // CHANGE LANGUAGE
+        // ============================================
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // Update all buttons
+            const allButtons = document.querySelectorAll('.language-switcher button');
+            allButtons.forEach(btn => btn.classList.remove('active'));
+            
+            const desktopBtn = document.getElementById('lang-' + lang);
+            const mobileBtn = document.getElementById('lang-' + lang + '-mobile');
+            
+            if (desktopBtn) desktopBtn.classList.add('active');
+            if (mobileBtn) mobileBtn.classList.add('active');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // ============================================
+        // INITIALIZE
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            changeLanguage('uk');
+        });
+    </script>
+</body>
+</html>

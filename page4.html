@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запис на консультацію - Centre de Droit Français</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles spécifiques pour la page de rendez-vous */
+        .rdv-hero {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 150px 2rem 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rdv-hero::before {
+            content: '📅';
+            position: absolute;
+            font-size: 25rem;
+            opacity: 0.03;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -55%) rotate(5deg); }
+        }
+
+        .rdv-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #D4AF37;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rdv-hero p {
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rdv-container {
+            max-width: 1200px;
+            margin: -50px auto 100px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .rdv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            color: white;
+            border: 3px solid #D4AF37;
+            position: sticky;
+            top: 100px;
+        }
+
+        .info-card h2 {
+            color: #D4AF37;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #D4AF37;
+        }
+
+        .info-item h3 {
+            color: #D4AF37;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .info-item p {
+            color: #e0e0e0;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .info-item ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .info-item li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #e0e0e0;
+        }
+
+        .info-item li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #D4AF37;
+            font-weight: bold;
+        }
+
+        .form-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 3px solid #D4AF37;
+        }
+
+        .form-card h2 {
+            color: #000;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-card .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #000;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            font-size: 1.05rem;
+        }
+
+        .form-group label .required {
+            color: #D4AF37;
+            margin-left: 3px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .price-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .rdv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-card {
+                position: static;
+            }
+
+            .rdv-hero {
+                padding: 120px 2rem 60px;
+            }
+
+            .rdv-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .rdv-hero {
+                padding: 100px 1.5rem 50px;
+            }
+
+            .rdv-hero h1 {
+                font-size: 2rem;
+            }
+
+            .rdv-hero p {
+                font-size: 1.1rem;
+            }
+
+            .rdv-container {
+                margin: -30px auto 60px;
+                padding: 0 1.5rem;
+            }
+
+            .form-card,
+            .info-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .info-card h2,
+            .form-card h2 {
+                font-size: 1.6rem;
+            }
+
+            .form-card .subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .rdv-hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .rdv-hero::before {
+                font-size: 15rem;
+            }
+
+            .form-card,
+            .info-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .info-item {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span>Centre de Droit Français</span>
+            </div>
+            
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-translate="nav_home">Головна</a></li>
+                    <li><a href="page3.html" data-translate="nav_services">Послуги</a></li>
+                    <li><a href="page4.html" data-translate="nav_rdv">Запис</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button onclick="changeLanguage('uk')" class="active" id="lang-uk">UK</button>
+                    <button onclick="changeLanguage('fr')" id="lang-fr">FR</button>
+                </div>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html" data-translate="nav_home" onclick="toggleMenu()">Головна</a></li>
+                <li><a href="page3.html" data-translate="nav_services" onclick="toggleMenu()">Послуги</a></li>
+                <li><a href="page4.html" data-translate="nav_rdv" onclick="toggleMenu()">Запис</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button onclick="changeLanguage('uk')" id="lang-uk-mobile">UK</button>
+                <button onclick="changeLanguage('fr')" id="lang-fr-mobile">FR</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="rdv-hero">
+        <h1 data-translate="rdv_hero_title">Запис</h1>
+        <p data-translate="rdv_hero_text">Заповніть форму нижче, і я зв'яжуся з вами протягом 24 годин</p>
+    </section>
+
+    <div class="rdv-container">
+        <div class="rdv-grid">
+            <!-- INFO CARD -->
+            <div class="info-card">
+                <h2 data-translate="info_card_title">Інформація про консультації</h2>
+              
+
+                <div class="info-item">
+                    <h3><span>💻</span><span data-translate="info_format_title">Формат</span></h3>
+                    <p data-translate="info_format_text">Консультації та навчання проводяться онлайн через Zoom, або Google Meet.</p>
+                </div>
+
+               
+            
+                <div class="info-item">
+                    <h3><span>📞</span><span data-translate="info_contact_title">Контакти</span></h3>
+                    <p><strong>Email:</strong> cddf.contact@gmail.com</p>
+                    <p><strong data-translate="info_phone">Телефон:</strong> +33 7 68 65 55 19</p>
+                </div>
+            </div>
+
+            <!-- FORM CARD -->
+            <div class="form-card">
+                <h2 data-translate="form_title">Форма запису</h2>
+                <p class="subtitle" data-translate="form_subtitle">Заповніть всі обов'язкові поля, і я зв'яжуся з вами найближчим часом</p>
+                
+                <form id="appointmentForm" action="https://formspree.io/f/xjgkndlk" method="POST">
+                    <input type="hidden" name="_subject" value="Nouvelle demande de rendez-vous - Centre de Droit Français">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-translate="form_firstname">Ім'я<span class="required">*</span></label>
+                            <input type="text" name="Prénom" required placeholder="Іван">
+                        </div>
+                        <div class="form-group">
+                            <label data-translate="form_lastname">Прізвище<span class="required">*</span></label>
+                            <input type="text" name="Nom" required placeholder="Петренко">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-translate="form_email">Email<span class="required">*</span></label>
+                            <input type="email" name="Email" required placeholder="exemple@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label data-translate="form_phone">Телефон<span class="required">*</span></label>
+                            <input type="tel" name="Téléphone" required placeholder="+XXX XX XXX XX XX">
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label data-translate="form_message">Опишіть вашу ситуацію<span class="required">*</span></label>
+                        <textarea name="Message" required placeholder="Опишіть детально вашу ситуацію та питання, які ви хотіли б обговорити під час консультації..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" data-translate="form_submit">Відправити заявку</button>
+                </form>
+
+                <div class="success-message" id="successMessage" data-translate="success_message">
+                    ✓ Дякую! Вашу заявку успішно відправлено. Я зв'яжуся з вами протягом 24 годин.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p data-translate="footer_text">© 2026 Centre de Droit Français. Усі права захищені.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Form submission handler
+        const form = document.getElementById('appointmentForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', function(e) {
+            // Formspree handles the submission automatically
+            // We just show a success message after submission
+            setTimeout(() => {
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Reset and show form again after 5 seconds
+                setTimeout(() => {
+                    form.reset();
+                    form.style.display = 'block';
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }, 1000);
+        });
+
+        const translations = {
+            uk: {
+                nav_home: "Головна",
+                nav_services: "Послуги",
+                nav_rdv: "Запис",
+                rdv_hero_title: "Запис",
+                rdv_hero_text: "Заповніть форму нижче, і я зв'яжуся з вами протягом 24 годин",
+                info_card_title: "Інформація про консультації",
+                info_phone_title: "Телефон",
+                whatsapp_btn: "Написати в WhatsApp",
+                info_format_title: "Формат",
+                info_format_text: "Консультації та навчання проводяться онлайн через Zoom, або Google Meet.",
+                form_title: "Форма запису",
+                form_subtitle: "Заповніть всі обов'язкові поля, і я зв'яжуся з вами найближчим часом",
+                form_firstname: "Ім'я",
+                form_lastname: "Прізвище",
+                form_email: "Email",
+                form_phone: "Телефон",
+                form_service: "Тип консультації",
+                form_select: "Виберіть...",
+                service_migration: "Міграційне право та візи",
+                service_micro: "Відкриття micro-entrepreneur",
+                service_legal: "Легалізація у Франції",
+                service_work: "Трудове право",
+                service_other: "Інше",
+                form_message: "Опишіть вашу ситуацію",
+                form_submit: "Відправити заявку",
+                success_message: "✓ Дякую! Вашу заявку успішно відправлено. Я зв'яжуся з вами протягом 24 годин.",
+                footer_text: "© 2026 Centre de Droit Français. Усі права захищені."
+            },
+            fr: {
+                nav_home: "Accueil",
+                nav_services: "Services",
+                nav_rdv: "Rendez-vous",
+                rdv_hero_title: "Rendez-vous",
+                rdv_hero_text: "Remplissez le formulaire ci-dessous et je vous recontacterai dans les 24 heures",
+                info_card_title: "Informations",
+                info_phone_title: "Téléphone",
+                whatsapp_btn: "Écrire sur WhatsApp",
+                info_format_title: "Format",
+                info_format_text: "Les consultations et trainings se déroulent en ligne via Zoom, ou Google Meet.",
+                form_title: "Formulaire de rendez-vous",
+                form_subtitle: "Remplissez tous les champs obligatoires et je vous contacterai dans les plus brefs délais",
+                form_firstname: "Prénom",
+                form_lastname: "Nom",
+                form_email: "Email",
+                form_phone: "Téléphone",
+                form_service: "Type de consultation",
+                form_select: "Sélectionnez...",
+                service_migration: "Droit de l'immigration et visas",
+                service_micro: "Création de micro-entrepreneur",
+                service_legal: "Régularisation en France",
+                service_work: "Droit du travail",
+                service_other: "Autre",
+                form_message: "Décrivez votre situation",
+                form_submit: "Envoyer la demande",
+                success_message: "✓ Merci ! Votre demande a été envoyée avec succès. Je vous contacterai dans les 24 heures.",
+                footer_text: "© 2026 Centre de Droit Français. Tous droits réservés."
+            }
+        };
+
+        let currentLang = 'uk';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.language-switcher button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('lang-' + lang).classList.add('active');
+            document.getElementById('lang-' + lang + '-mobile').classList.add('active');
+            
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' && element.type === 'submit') {
+                        element.value = translations[lang][key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        // Set minimum date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            changeLanguage('uk');
+        });
+    </script>
+</body>
+</html>

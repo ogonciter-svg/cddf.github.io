@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre de droit français</title>
+
+</head>
+<body>
+    <header>
+        <nav>
+		
+            <div class="logo">
+                <span>Centre de Droit Français</span>
+            </div>
+            
+            <!-- Menu Desktop -->
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-translate="nav_home">Головна</a></li>
+                    <li><a href="page3.html" data-translate="nav_services">Послуги</a></li>
+                    <li><a href="page4.html" data-translate="nav_rdv">Запис</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button onclick="changeLanguage('uk')" class="active" id="lang-uk">UK</button>
+                    <button onclick="changeLanguage('fr')" id="lang-fr">FR</button>
+                </div>
+            </div>
+
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <!-- Menu Mobile -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <img src="logo.jpg" alt="Logo" class="mobile-menu-logo">
+                <div class="mobile-menu-title">Centre de Droit Français</div>
+            </div>
+            <ul>
+                <li><a href="index.html" data-translate="nav_home" onclick="toggleMenu()">Головна</a></li>
+                <li><a href="page3.html" data-translate="nav_services" onclick="toggleMenu()">Послуги</a></li>
+                <li><a href="page4.html" data-translate="nav_rdv" onclick="toggleMenu()">Запис</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button onclick="changeLanguage('uk')" class="active" id="lang-uk-mobile">UK</button>
+                <button onclick="changeLanguage('fr')" id="lang-fr-mobile">FR</button>
+            </div>
+            <div class="mobile-menu-footer">
+                <img src="logo.jpg" alt="Logo" class="mobile-menu-footer-logo">
+                <div class="mobile-menu-footer-title">Centre de Droit Français</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 data-translate="hero_title">Ваш юридичний експерт</h1>
+            <p data-translate="hero_text">Юридичні знання з індивідуальним підходом</p>
+            
+            <div style="margin-top: 2rem;">
+                <a href="page4.html" class="btn" data-translate="btn_rdv">Записатися на прийом</a>
+                <a href="page3.html" class="btn" data-translate="btn_services">Послуги</a>
+            </div>
+        </div>
+
+        <div class="hero-image-container">
+            <div class="hero-image"></div>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="bio-section">
+        <div class="bio-container">
+            <div class="bio-sidebar">
+                <div class="profile-card">
+                    <div class="profile-image-bio"></div>
+                    <h2 data-translate="lawyer_name">Аліна Гончарова</h2> 
+                    
+                    <div class="contact-info">
+                        <p><strong data-translate="contact_email">Email:</strong> cddf.contact@gmail.com</p> 
+                        <p><strong data-translate="contact_phone">Телефон:</strong> + 33 7 68 65 55 19</p>
+                        <p><strong data-translate="contact_address">Адреса:</strong> 37100 Tours, France</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bio-content">
+                <h3 data-translate="bio_title">Біографія</h3>
+                <p data-translate="bio_p1">
+                    Аліна Гончарова — кандидатка юридичних наук, доцент, юрист із 13-річним досвідом роботи у сфері міжнародного приватного права. Засновниця Центру французького права, спеціалізується на питаннях французького права. Авторка понад 100 наукових та аналітичних публікацій у сфері міжнародного приватного та порівняльного права.
+                </p>
+
+                <p data-translate="bio_p2">
+                    Дослідниця Le Studium (Франція) та членкиня L'Institut de Recherche Juridique Interdisciplinaire François-Rabelais (IRJI, Франція).
+                </p>
+
+                <div class="qualifications">
+                    <h4 data-translate="qual_title">Кваліфікації та досягнення</h4>             
+                    <ul>
+                        <li data-translate="qual1">Диплом кандидата юридичних наук в міжнародному приватному праві (2012 р.)</li>
+                        <li data-translate="qual2">Диплом доцента (2016 р.)</li>
+                        <li data-translate="qual3">Юрист ГО "Союз юристів України" (з 2020 р.)</li>
+                        <li data-translate="qual5">Членкиня юридичної групи Посольства України у Франції (2022-2024 р.р.)</li>
+                        <li data-translate="qual6">Магістрантка права у ВНЗ Франції (з 2025 р.)</li>
+                    </ul>
+                </div>
+
+                <h3 data-translate="approach_title">Мій підхід</h3>
+                <p data-translate="approach_p">
+                    Моя мета - навчити вас самостійно, впевнено та без стресу розуміти юридичні тонкощі французького права.
+                </p>
+            </div>
+        </div>
+    </section>
+
+  <!-- Expertise Interactive Section -->
+    <section class="expertise-section">
+        <div class="expertise-container">
+            <h2 class="section-title" data-translate="expertise_title">Напрями діяльності</h2>
+            
+            <div class="expertise-grid">
+                <!-- КОНСУЛЬТАЦІЇ -->
+                <div class="expertise-card main-category">
+                    <span class="expertise-number">01</span>
+                    <div class="card-content">
+                        <div class="category-badge" data-translate="category_consultations">КОНСУЛЬТАЦІЇ</div>
+                        <h3 data-translate="exp1_title">Консультаційна та навчальна діяльність </h3>
+                        <ul class="expertise-details">
+                            <li data-translate="exp1_item1">Аналіз вашої ситуації та вибір оптимальної стратегії </li>
+                            <li data-translate="exp1_item3">Відкриття та ведення micro-entrepreneur</li>
+                            <li data-translate="exp1_item2">Міграційне право та легалізація перебування</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- КУРСИ -->
+                <div class="expertise-card main-category">
+                    <span class="expertise-number">02</span>
+                    <div class="card-content">
+                        <div class="category-badge" data-translate="category_courses">КУРСИ</div>
+                        <h3 data-translate="exp2_title">Курси підвищення кваліфікації</h3>
+                        <p data-translate="exp2_desc">Сертифіковане навчання для юристів та фахівців, які працюють з європейським правом.</p>
+                        <ul class="expertise-details">
+                            <li data-translate="exp2_item1">Модуль 1. Поглиблене європейське право та секторальні політики</li>
+                            <li data-translate="exp2_item2">Модуль 2. Практичне впровадження економічного права та політик ЄС</li>
+                            <li data-translate="exp2_item3">Детальніше на сторінці "Послуги"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-center">
+                <a href="page3.html" class="btn" data-translate="btn_services_bottom">Детальніше про послуги</a>
+            </div>
+        </div>
+    </section>
+
+    </section>
+   <footer>
+    <p>  <img src="logo.jpg" alt="Logo"
+             style="
+                width:3%;
+                height:auto;
+                border-radius:50%;
+                object-fit:cover;
+                vertical-align:middle;
+                margin-right:6px;
+             ">
+	&copy; 2026 Centre de Droit Français. 
+        <span data-translate="footer_rights">Усі права захищені</span>.
+    </p>
+
+    <p>
+       
+            Якщо маєте питання зв'яжіться з нами.
+        </span>
+    </p>
+</footer>
+
+ 
+
+    <script>
+        // Toggle menu mobile
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        const translations = {
+            uk: {
+                nav_home: "Головна",
+                nav_services: "Послуги",
+                nav_rdv: "Запис",
+                hero_title: "Ваш юридичний експерт",
+                hero_text: "Юридичні знання з індивідуальним підходом",
+                btn_rdv: "Записатися на прийом",
+                btn_services: "Послуги",
+                btn_services_bottom: "Детальніше про послуги",
+                lawyer_name: "Аліна Гончарова",
+                contact_email: "Email:",
+                contact_phone: "Телефон:",
+                contact_address: "Адреса:",
+                bio_title: "Біографія",
+                bio_p1: "Аліна Гончарова — кандидатка юридичних наук, доцент, юрист із 13-річним досвідом роботи у сфері міжнародного приватного права. Засновниця Центру французького права, спеціалізується на питаннях французького права. Авторка понад 100 наукових та аналітичних публікацій у сфері міжнародного приватного та порівняльного права.",
+                bio_p2: "Дослідниця Le Studium (Франція) та членкиня L'Institut de Recherche Juridique Interdisciplinaire François-Rabelais (IRJI, Франція).",
+                qual_title: "Кваліфікації та досягнення",
+                qual1: "Диплом кандидата юридичних наук в міжнародному приватному праві (2012 р.)",
+                qual2: "Диплом доцента (2016 р.)",
+                qual3: "Юрист ГО 'Союз юристів України' (з 2020 р.)",
+                qual5: "Членкиня юридичної групи Посольства України у Франції (2022-2024 р.р.)",
+                qual6: "Магістрантка права у ВНЗ Франції (з 2025 р.)",
+                approach_title: "Мій підхід",
+                approach_p: "Моя мета - навчити вас самостійно, впевнено та без стресу розуміти юридичні тонкощі французького права.",
+                expertise_title: "Напрями діяльності",
+                exp1_title: "Консультаційна та навчальна діяльність",
+                exp1_item1: "Міграційне право та легалізація перебування.",
+                exp1_item2: "Відкриття та ведення micro-entrepreneur.",
+				exp1_item3: "Аналіз вашої ситуації та вибір оптимальної стратегії." , 
+                exp2_title: "Курси підвищення кваліфікації",
+			    exp2_desc: "Сертифіковане навчання для юристів та фахівців, які працюють з європейським правом." ,
+                exp2_item1: "Модуль 1. Європейське право та секторальні політики.",
+                exp2_item2: "Модуль 2. Практичне впровадження економічного права та політик ЄС.",
+				exp2_item3: "Детальніше на сторінці 'Послуги' ",
+                exp3_title: "Практичні заняття з реєстрації та ведення micro-entrepreneur",
+                exp3_item1: "Роз'яснення процедури реєстрації на сайті URSSAF.",
+                exp3_item2: "Пояснення щодо звітності.",
+                cta_title: "Потрібна консультація?",
+                cta_text: "Зв'яжіться зі мною сьогодні для безкоштовної первинної консультації",
+                btn_contact: "Записатися",
+                footer_rights: "Усі права захищені",
+                footer_tagline: "Si vous avez des questions, contactez-nous"
+            },
+            fr: {
+                nav_home: "Accueil",
+                nav_services: "Services",
+                nav_rdv: "Rendez-vous",
+                hero_title: "Votre expert juridique",
+                hero_text: "Expertise juridique avec approche personnalisée",
+                btn_rdv: "Prendre rendez-vous",
+                btn_services: "Services",
+                btn_services_bottom: "En savoir plus sur les services",
+                lawyer_name: "Alina Goncharova",
+                contact_email: "Email :",
+                contact_phone: "Téléphone :",
+                contact_address: "Adresse :",
+                bio_title: "Biographie",
+                bio_p1: "Alina Goncharova est docteure en droit, maître de conférences, juriste avec 13 ans d'expérience dans le domaine du droit international privé. Fondatrice du Centre de droit français, il se spécialise dans les questions de droit français. Auteure de plus de 100 publications scientifiques et analytiques dans le domaine du droit international privé et comparé.",
+                bio_p2: "Chercheuse au Le Studium (France) et membre de L'Institut de Recherche Juridique Interdisciplinaire François-Rabelais (IRJI, France).",
+                qual_title: "Qualifications et réalisations",
+                qual1: "Doctorat en droit international privé (2012)",
+                qual2: "Diplôme de maître de conférences (2016)",
+                qual3: "Juriste à 'Union des juristes d'Ukraine' (depuis 2020)",
+                qual5: "Membre du groupe juridique de l'Ambassade d'Ukraine en France (2022-2024)",
+                qual6: "Étudiante en Master de droit en France (depuis 2025)",
+                approach_title: "Mon approche",
+                approach_p: "Mon objectif est de vous apprendre à comprendre de manière autonome, confiante et sans stress les subtilités juridiques du droit français.",
+                expertise_title: "Domaines d'activité",
+                exp1_title: "Activité de conseil et de formation",
+                exp1_item1: "Droit de l’immigration et régularisation du séjour.",
+                exp1_item2: "Création et gestion du statut de micro-entrepreneur.",
+				exp1_item3: "Analyse de votre situation et choix de la stratégie optimale." ,
+                exp2_title: "Formations de perfectionnement",
+				exp2_desc: " Formation  Certifiée  pour les juristes et les spécialistes travaillant avec le droit européen." ,
+                exp2_item1: " Module 1. Droit européen  et politiques sectorielles.",
+                exp2_item2: "Module 2.  Mise en pratique du droit économique et des politiques de l’UE .",
+				exp2_item3: "En savoir plus sur la page « Services »",
+                exp3_title: "Cours pratiques sur l'enregistrement et la gestion de micro-entrepreneur",
+                exp3_item1: "Explication de la procédure d'enregistrement sur le site URSSAF.",
+                exp3_item2: "Explications sur la comptabilité.",
+                cta_title: "Besoin d'une consultation ?",
+                cta_text: "Contactez-moi aujourd'hui pour une consultation initiale gratuite",
+                btn_contact: "Prendre rendez-vous",
+                footer_rights: "Tous droits réservés",
+                footer_tagline: "Excellence juridique depuis 2004"
+            }
+        };
+
+        let currentLang = 'uk';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // Update active button for both desktop and mobile
+            document.querySelectorAll('.language-switcher button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('lang-' + lang).classList.add('active');
+            document.getElementById('lang-' + lang + '-mobile').classList.add('active');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Initialize with Ukrainian
+        document.addEventListener('DOMContentLoaded', function() {
+            changeLanguage('uk');
+        });
+    </script>
+</body>
+</html>
