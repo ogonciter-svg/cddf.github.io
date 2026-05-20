@@ -312,22 +312,24 @@ nav {
     padding: 30px; /* Отступ внутри рамки, чтобы логотип не прижимался к краям */
     box-sizing: border-box;
     /*HEEEEEROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO */
+/* Головна секція: робимо її на весь екран та центруємо вміст */
 .hero-section {
     min-height: 100vh;
-    display: flex;         /* Змінюємо grid на flex для простішого центрування */
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* Центрування по вертикалі */
-    align-items: center;     /* Центрування по горизонталі */
-    text-align: center;      /* Вирівнювання тексту по центру */
+    justify-content: center; /* Центрує контент по вертикалі */
+    align-items: center;     /* Центрує контент по горизонталі */
+    text-align: center;      /* Робить текст по центру */
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 2rem;      /* Зменшили верхній паддінг, бо flex сам усе відцентрує */
+    padding: 2rem;
     box-sizing: border-box;
 }
 
+/* Контейнер з текстом */
 .hero-content {
-    padding: 2rem;
-    max-width: 800px;        /* Обмежуємо ширину, щоб текст не розповзався на весь екран */
+    max-width: 800px;        /* Щоб текст не розтягувався занадто сильно вшир */
+    width: 100%;
 }
 
 .hero-content h1 {
@@ -335,55 +337,37 @@ nav {
     color: #000;
     margin-bottom: 1.5rem;
     line-height: 1.2;
-    animation: fadeInLeft 1s;
 }
 
-.hero-content .subtitle {
+.hero-content p {
     font-size: 1.5rem;
-    color: #D4AF37;
+    color: #555;            /* Можете змінити колір, якщо текст занадто світлий */
     margin-bottom: 2rem;
-    font-weight: 600;
 }
 
-/* Якщо у вас кнопки знаходяться всередині контейнера для кнопок, 
-   цей код допоможе їм стати в один ряд по центру */
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
+/* МАГІЯ ДЛЯ КНОПОК: 
+   Знаходимо той самий div, який йде після тегу <p> у вашому HTML, 
+   і змушуємо кнопки всередині нього стати по центру */
+.hero-content p + div {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1.5rem !important; /* Відстань між кнопками */
 }
 
-/* --- Код для логотипу (залишаємо без змін, виправлено помилку в коментарі) --- */
-.hero-image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeInRight 1s;
+/* Стилі для кнопок (якщо вони у вас не прописані в іншому місці) */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #D4AF37; /* Ваш золотий колір з кнопок */
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background 0.3s ease;
 }
 
-.hero-image {
-    width: 450px;
-    height: 550px;
-    border-radius: 20px;
-    border: 5px solid #D4AF37;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    position: relative;
-    background-color: #ffffff; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;  
-}
-
-.logo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    padding: 30px; 
-    box-sizing: border-box;
-}
+.btn:hover {
+    background-color: #bfa030; /* Ефект при наведенні */
 }
 
 /* ============================================ */
