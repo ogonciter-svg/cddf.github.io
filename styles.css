@@ -352,7 +352,7 @@ nav {
     height: 550px;
     background: url('logo.jpg') center/cover no-repeat;
     border-radius: 20px;
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 100px rgba(0, 0, 0, 0.2);
     border: 5px solid #D4AF37;
     position: relative;
 }
