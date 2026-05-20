@@ -338,7 +338,11 @@ nav {
     margin-bottom: 2rem;
     line-height: 1.8;
 }
-
+.hero-content p + div {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
 .hero-image-container {
     position: relative;
     display: flex;
