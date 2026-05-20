@@ -350,11 +350,26 @@ nav {
 .hero-image {
     width: 450px;
     height: 550px;
-    background: url('logo.jpg') center/cover no-repeat;
     border-radius: 20px;
-    box-shadow: 0 200px 60px rgba(0, 0, 0, 0.2);
     border: 5px solid #D4AF37;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
     position: relative;
+    background-color: #ffffff; /* Белый фон вместо старой огромной картинки */
+    
+    /* Центрируем логотип */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+/* Это обязательно добавьте ниже, чтобы картинка сжималась */
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    padding: 30px; /* Отступ внутри рамки, чтобы логотип не прижимался к краям */
+    box-sizing: border-box;
 }
 
 /* ============================================ */
