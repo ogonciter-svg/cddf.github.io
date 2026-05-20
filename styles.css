@@ -302,7 +302,66 @@ nav {
 /* ============================================ */
 /* HERO SECTION */
 /* ============================================ */
+.hero-section {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 120px 2rem 60px;
+}
 
+.hero-content {
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: #000;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    animation: fadeInLeft 1s;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    color: #D4AF37;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.hero-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInRight 1s;
+}
+
+.hero-image {
+    width: 450px;
+    height: 550px;
+    border-radius: 20px;
+    border: 5px solid #D4AF37;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    position: relative;
+    background-color: #ffffff; /* Белый фон вместо старой огромной картинки */
+    
+    /* Центрируем логотип */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
 
 /* Это обязательно добавьте ниже, чтобы картинка сжималась */
 .logo-img {
@@ -311,63 +370,6 @@ nav {
     object-fit: contain; 
     padding: 30px; /* Отступ внутри рамки, чтобы логотип не прижимался к краям */
     box-sizing: border-box;
-    /*HEEEEEROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO */
-/* Головна секція: робимо її на весь екран та центруємо вміст */
-.hero-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Центрує контент по вертикалі */
-    align-items: center;     /* Центрує контент по горизонталі */
-    text-align: center;      /* Робить текст по центру */
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 2rem;
-    box-sizing: border-box;
-}
-
-/* Контейнер з текстом */
-.hero-content {
-    max-width: 800px;        /* Щоб текст не розтягувався занадто сильно вшир */
-    width: 100%;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    color: #000;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    color: #555;            /* Можете змінити колір, якщо текст занадто світлий */
-    margin-bottom: 2rem;
-}
-
-/* МАГІЯ ДЛЯ КНОПОК: 
-   Знаходимо той самий div, який йде після тегу <p> у вашому HTML, 
-   і змушуємо кнопки всередині нього стати по центру */
-.hero-content p + div {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 1.5rem !important; /* Відстань між кнопками */
-}
-
-/* Стилі для кнопок (якщо вони у вас не прописані в іншому місці) */
-.btn {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background-color: #D4AF37; /* Ваш золотий колір з кнопок */
-    color: #000;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: background 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #bfa030; /* Ефект при наведенні */
 }
 
 /* ============================================ */
