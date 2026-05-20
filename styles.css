@@ -634,7 +634,8 @@ nav {
 .profile-image-bio {
     width: 100%;
     height: 350px;
-    background: url('pose.jpg') center/cover no-repeat;
+    /* Изменено center/cover на top/cover */
+    background: url('pose.jpg') top/cover no-repeat; 
     border-radius: 15px;
     margin-bottom: 1.5rem;
     border: 3px solid #D4AF37;
