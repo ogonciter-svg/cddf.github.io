@@ -522,7 +522,7 @@
             border: 2px solid #e0e0e0;
             transition: all 0.4s ease;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .consulting-item::after {
@@ -584,8 +584,7 @@
         }
 
         .consulting-item li {
-            padding: 0.6rem 0;
-            padding-left: 2rem;
+            padding: 0.6rem 0 0.6rem 2.2rem;
             position: relative;
             color: #666;
         }
@@ -593,53 +592,72 @@
         .consulting-item li::before {
             content: '→';
             position: absolute;
-            left: 0;
+            left: 0.2rem;
             color: #D4AF37;
             font-weight: bold;
         }
 
-        /* INFO BOXES */
+        /* ============================================ */
+        /* INFO BOX — REDESIGNED */
+        /* ============================================ */
         .info-box {
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             color: white;
             padding: 2.5rem;
             border-radius: 20px;
             margin: 3rem 0;
-            border: 3px solid #D4AF37;
+            border: 2px solid #D4AF37;
         }
 
         .info-box h3 {
             color: #D4AF37;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
         }
 
         .info-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 14px;
+            padding: 1.2rem 1.3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .info-item:hover {
+            border-color: #D4AF37;
+            transform: translateY(-3px);
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
         }
 
         .info-item strong {
             display: block;
-            color: #D4AF37;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            color: #888;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 600;
         }
 
         .info-item span {
-            color: #e0e0e0;
+            color: #fff;
+            font-size: 0.93rem;
+            line-height: 1.5;
         }
 
         /* CTA SECTION */
@@ -692,319 +710,87 @@
             border-top: 3px solid #D4AF37;
         }
 
-/* ============================================ */
+        /* ============================================ */
         /* RESPONSIVE */
         /* ============================================ */
         @media (max-width: 768px) {
-            header {
-                padding: 1rem 0;
-            }
+            header { padding: 1rem 0; }
+            nav { padding: 0 1.5rem; }
+            .logo { font-size: 1.1rem; }
+            .nav-center { display: none !important; }
+            .hamburger { display: flex !important; }
+            .mobile-menu { display: block !important; }
 
-            nav {
-                padding: 0 1.5rem;
-            }
+            .services-hero { padding: 140px 2rem 70px; }
+            .services-hero::before { font-size: 18rem; opacity: 0.05; }
+            .services-hero h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 1.5rem; }
+            .services-hero p { font-size: 1.15rem; line-height: 1.6; padding: 0 1rem; }
+            .online-badge { font-size: 1rem; padding: 1rem 2.2rem; margin-top: 1.5rem; }
 
-            .logo {
-                font-size: 1.1rem;
-            }
+            .services-section { padding: 60px 1.5rem; }
+            .service-block { margin-bottom: 80px; }
+            .service-header { padding: 2.5rem 1.8rem; border-radius: 20px; }
+            .service-category { font-size: 0.75rem; padding: 0.6rem 1.5rem; margin-bottom: 1.2rem; }
+            .service-title { font-size: 1.9rem; line-height: 1.3; margin-bottom: 1rem; }
+            .service-subtitle { font-size: 1.05rem; line-height: 1.6; }
+            .service-number { font-size: 5.5rem; right: 15px; top: 10px; }
+            .expand-indicator { font-size: 1.8rem; bottom: 15px; right: 20px; }
+            .service-content.expanded { padding: 2rem 1.5rem; border-radius: 0 0 20px 20px; }
 
-            .nav-center {
-                display: none !important;
-            }
+            .service-intro { padding: 2rem 1.5rem; border-radius: 15px; margin-bottom: 2.5rem; }
+            .service-intro h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+            .service-intro p { font-size: 1.05rem; line-height: 1.7; }
 
-            .hamburger {
-                display: flex !important;
-            }
+            .target-audience { padding: 1.8rem 1.5rem; border-radius: 15px; margin: 2rem 0; }
+            .target-audience h4 { font-size: 1.3rem; margin-bottom: 1rem; }
+            .target-audience p { font-size: 1.05rem; line-height: 1.7; }
 
-            .mobile-menu {
-                display: block !important;
-            }
+            .modules-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .module-card { padding: 2rem 1.5rem; border-radius: 18px; }
+            .module-card h4 { font-size: 1.4rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+            .module-icon { font-size: 1.8rem; }
+            .module-card li { font-size: 1rem; padding: 0.9rem 0; padding-left: 2rem; line-height: 1.6; }
 
-            .services-hero {
-                padding: 140px 2rem 70px;
-            }
+            .consulting-grid { gap: 2rem; }
+            .consulting-item { padding: 2rem 1.5rem; border-radius: 18px; }
+            .consulting-item h4 { font-size: 1.4rem; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.8rem; }
+            .consulting-number { width: 38px; height: 38px; font-size: 1.1rem; }
+            .consulting-item p { font-size: 1.05rem; line-height: 1.7; }
+            .consulting-item li { font-size: 1rem; padding: 0.7rem 0 0.7rem 2.2rem; line-height: 1.6; }
 
-            .services-hero::before {
-                font-size: 18rem;
-                opacity: 0.05;
-            }
+            /* INFO BOX MOBILE */
+            .info-box { padding: 1.8rem 1.3rem; border-radius: 16px; margin: 2.5rem 0; }
+            .info-box h3 { font-size: 1.2rem; margin-bottom: 1.2rem; }
+            .info-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+            .info-item { padding: 1rem 1rem; border-radius: 12px; }
+            .info-icon { font-size: 1.3rem; }
+            .info-item strong { font-size: 0.68rem; }
+            .info-item span { font-size: 0.88rem; }
 
-            .services-hero h1 {
-                font-size: 2.8rem;
-                line-height: 1.2;
-                margin-bottom: 1.5rem;
-            }
-
-            .services-hero p {
-                font-size: 1.15rem;
-                line-height: 1.6;
-                padding: 0 1rem;
-            }
-
-            .online-badge {
-                font-size: 1rem;
-                padding: 1rem 2.2rem;
-                margin-top: 1.5rem;
-            }
-
-            .services-section {
-                padding: 60px 1.5rem;
-            }
-
-            .service-block {
-                margin-bottom: 80px;
-            }
-
-            .service-header {
-                padding: 2.5rem 1.8rem;
-                border-radius: 20px;
-            }
-
-            .service-category {
-                font-size: 0.75rem;
-                padding: 0.6rem 1.5rem;
-                margin-bottom: 1.2rem;
-            }
-
-            .service-title {
-                font-size: 1.9rem;
-                line-height: 1.3;
-                margin-bottom: 1rem;
-            }
-
-            .service-subtitle {
-                font-size: 1.05rem;
-                line-height: 1.6;
-            }
-
-            .service-number {
-                font-size: 5.5rem;
-                right: 15px;
-                top: 10px;
-            }
-
-            .expand-indicator {
-                font-size: 1.8rem;
-                bottom: 15px;
-                right: 20px;
-            }
-
-            .service-content.expanded {
-                padding: 2rem 1.5rem;
-                border-radius: 0 0 20px 20px;
-            }
-
-            .service-intro {
-                padding: 2rem 1.5rem;
-                border-radius: 15px;
-                margin-bottom: 2.5rem;
-            }
-
-            .service-intro h3 {
-                font-size: 1.6rem;
-                margin-bottom: 1rem;
-            }
-
-            .service-intro p {
-                font-size: 1.05rem;
-                line-height: 1.7;
-            }
-
-            .target-audience {
-                padding: 1.8rem 1.5rem;
-                border-radius: 15px;
-                margin: 2rem 0;
-            }
-
-            .target-audience h4 {
-                font-size: 1.3rem;
-                margin-bottom: 1rem;
-            }
-
-            .target-audience p {
-                font-size: 1.05rem;
-                line-height: 1.7;
-            }
-
-            .modules-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .module-card {
-                padding: 2rem 1.5rem;
-                border-radius: 18px;
-            }
-
-            .module-card h4 {
-                font-size: 1.4rem;
-                margin-bottom: 1.2rem;
-                flex-wrap: wrap;
-            }
-
-            .module-icon {
-                font-size: 1.8rem;
-            }
-
-            .module-card li {
-                font-size: 1rem;
-                padding: 0.9rem 0;
-                padding-left: 2rem;
-                line-height: 1.6;
-            }
-
-            .consulting-grid {
-                gap: 2rem;
-            }
-
-            .consulting-item {
-                padding: 2rem 1.5rem;
-                border-radius: 18px;
-            }
-
-            .consulting-item h4 {
-                font-size: 1.4rem;
-                margin-bottom: 1rem;
-                flex-wrap: wrap;
-                gap: 0.8rem;
-            }
-
-            .consulting-number {
-                width: 38px;
-                height: 38px;
-                font-size: 1.1rem;
-            }
-
-            .consulting-item p {
-                font-size: 1.05rem;
-                line-height: 1.7;
-            }
-
-            .consulting-item li {
-                font-size: 1rem;
-                padding: 0.7rem 0;
-                line-height: 1.6;
-            }
-
-            .info-box {
-                padding: 2rem 1.5rem;
-                border-radius: 18px;
-                margin: 2.5rem 0;
-            }
-
-            .info-box h3 {
-                font-size: 1.4rem;
-                margin-bottom: 1.2rem;
-                flex-wrap: wrap;
-            }
-
-            .info-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.2rem;
-            }
-
-            .info-item {
-                padding: 1.5rem;
-                border-radius: 12px;
-                text-align: left;
-            }
-
-            .info-item strong {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .info-item span {
-                font-size: 1rem;
-                line-height: 1.5;
-            }
-
-            .cta-section {
-                padding: 60px 2rem;
-                border-radius: 20px;
-                margin: 60px 1.5rem;
-            }
-
-            .cta-section h2 {
-                font-size: 2.2rem;
-                line-height: 1.2;
-                margin-bottom: 1.2rem;
-            }
-
-            .cta-section p {
-                font-size: 1.15rem;
-                line-height: 1.6;
-                margin-bottom: 2rem;
-                padding: 0 1rem;
-            }
-
-            .btn {
-                padding: 1.1rem 2.5rem;
-                font-size: 1.1rem;
-                border-radius: 40px;
-            }
-
-            footer {
-                padding: 2rem 1.5rem;
-                font-size: 0.95rem;
-            }
+            .cta-section { padding: 60px 2rem; border-radius: 20px; margin: 60px 1.5rem; }
+            .cta-section h2 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 1.2rem; }
+            .cta-section p { font-size: 1.15rem; line-height: 1.6; margin-bottom: 2rem; padding: 0 1rem; }
+            .btn { padding: 1.1rem 2.5rem; font-size: 1.1rem; border-radius: 40px; }
+            footer { padding: 2rem 1.5rem; font-size: 0.95rem; }
         }
 
         @media (max-width: 480px) {
-            .services-hero {
-                padding: 130px 1.5rem 60px;
-            }
+            .services-hero { padding: 130px 1.5rem 60px; }
+            .services-hero h1 { font-size: 2.2rem; }
+            .services-hero p { font-size: 1.05rem; }
+            .online-badge { font-size: 0.95rem; padding: 0.9rem 1.8rem; }
+            .service-title { font-size: 1.6rem; }
+            .service-subtitle { font-size: 1rem; }
+            .service-number { font-size: 4.5rem; right: 10px; }
+            .service-intro h3 { font-size: 1.4rem; }
+            .module-card h4 { font-size: 1.3rem; }
+            .consulting-item h4 { font-size: 1.3rem; }
+            .cta-section h2 { font-size: 1.9rem; }
+            .cta-section p { font-size: 1.05rem; }
+            .btn { padding: 1rem 2rem; font-size: 1rem; }
 
-            .services-hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .services-hero p {
-                font-size: 1.05rem;
-            }
-
-            .online-badge {
-                font-size: 0.95rem;
-                padding: 0.9rem 1.8rem;
-            }
-
-            .service-title {
-                font-size: 1.6rem;
-            }
-
-            .service-subtitle {
-                font-size: 1rem;
-            }
-
-            .service-number {
-                font-size: 4.5rem;
-                right: 10px;
-            }
-
-            .service-intro h3 {
-                font-size: 1.4rem;
-            }
-
-            .module-card h4 {
-                font-size: 1.3rem;
-            }
-
-            .consulting-item h4 {
-                font-size: 1.3rem;
-            }
-
-            .cta-section h2 {
-                font-size: 1.9rem;
-            }
-
-            .cta-section p {
-                font-size: 1.05rem;
-            }
-
-            .btn {
-                padding: 1rem 2rem;
-                font-size: 1rem;
-            }
+            /* INFO BOX SMALL PHONE */
+            .info-grid { grid-template-columns: 1fr; gap: 0.7rem; }
         }
     </style>
 </head>
@@ -1112,35 +898,43 @@
                     </div>
                 </div>
 
+                <!-- INFO BOX — REDESIGNED -->
                 <div class="info-box">
                     <h3><span>📋</span><span data-translate="program_info_title">Інформація про програму</span></h3>
                     <div class="info-grid">
                         <div class="info-item">
+                            <span class="info-icon">⏱</span>
                             <strong data-translate="info_volume">Обсяг:</strong>
-                            <span data-translate="info_heure">кредити ЄКТС (180 годин)</span>
+                            <span data-translate="info_heure">3 кредити ЄКТС (180 годин)</span>
                         </div>
                         <div class="info-item">
+                            <span class="info-icon">💻</span>
                             <strong data-translate="info_format">Формат:</strong>
                             <span data-translate="info_format_online">Дистанційний (ZOOM)</span>
                         </div>
                         <div class="info-item">
+                            <span class="info-icon">🎓</span>
                             <strong data-translate="info_document">Документ:</strong>
-                            <span data-translate="info_certificate">Європейський сертифікат про підвищення кваліфікації(Франція)</span>
+                            <span data-translate="info_certificate">Європейський сертифікат про підвищення кваліфікації (Франція)</span>
                         </div>
-						 <div class="info-item">
+                        <div class="info-item">
+                            <span class="info-icon">👤</span>
                             <strong data-translate="info_coordinant">Координатор програми:</strong>
                             <span data-translate="info_alina">Аліна Гончарова</span>
                         </div>
-						     <div class="info-item">
-							<strong data-translate="info_telephone">Телефон:</strong>
-                            <span data-translate="info_numero">Україна:+380669605822 Франція:+33768655519</span>
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <strong data-translate="info_telephone">Телефон:</strong>
+                            <span data-translate="info_numero">Україна: +380669605822<br>Франція: +33768655519</span>
                         </div>
-						     <div class="info-item">
-							<strong data-translate="info_email">Електронна пошта:</strong>
+                        <div class="info-item">
+                            <span class="info-icon">✉️</span>
+                            <strong data-translate="info_email">Електронна пошта:</strong>
                             <span data-translate="info_mail">cddf.contact@gmail.com</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -1198,7 +992,7 @@
                         <ul>
                             <li data-translate="consulting3_item1">Створення micro-entrepreneur</li>
                             <li data-translate="consulting3_item2">Вибір правової форми бізнесу</li>
-							<li data-translate="consulting3_item3">Аргументація бізнес-проєкту</li>
+                            <li data-translate="consulting3_item3">Аргументація бізнес-проєкту</li>
                         </ul>
                     </div>
 
@@ -1214,10 +1008,6 @@
                             <li data-translate="consulting4_item3">Стратегічне планування кар'єри</li>
                         </ul>
                     </div>
-
-                    
-					                            <li data-translate="consulting5_item4">Залучаю досвідчених адвокатів за потреби</li>
-
                 </div>
             </div>
         </div>
@@ -1236,45 +1026,23 @@
     </footer>
 
     <script>
-        // ============================================
-        // TOGGLE MOBILE MENU
-        // ============================================
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             const hamburger = document.querySelector('.hamburger');
-            
             menu.classList.toggle('active');
             hamburger.classList.toggle('active');
         }
 
-        // ============================================
-        // TOGGLE SERVICE CONTENT
-        // ============================================
         function toggleServiceContent(header) {
             const content = header.nextElementSibling;
             const allHeaders = document.querySelectorAll('.service-header');
             const allContents = document.querySelectorAll('.service-content');
-            
-            // Close all other services
-            allHeaders.forEach(h => {
-                if (h !== header) {
-                    h.classList.remove('expanded');
-                }
-            });
-            allContents.forEach(c => {
-                if (c !== content) {
-                    c.classList.remove('expanded');
-                }
-            });
-            
-            // Toggle current service
+            allHeaders.forEach(h => { if (h !== header) h.classList.remove('expanded'); });
+            allContents.forEach(c => { if (c !== content) c.classList.remove('expanded'); });
             header.classList.toggle('expanded');
             content.classList.toggle('expanded');
         }
 
-        // ============================================
-        // TRANSLATIONS
-        // ============================================
         const translations = {
             uk: {
                 nav_home: "Головна",
@@ -1310,17 +1078,17 @@
                 module2_item6: "Європейське податкове право",
                 program_info_title: "Інформація про програму",
                 info_volume: "Обсяг:",
+                info_heure: "3 кредити ЄКТС (180 годин)",
                 info_format: "Формат:",
-				info_heure: "кредити ЄКТС (180 годин)",
                 info_format_online: "Дистанційний (ZOOM)",
                 info_document: "Документ:",
                 info_certificate: "Європейський сертифікат про підвищення кваліфікації (Франція)",
-				info_coordinant: "Координатор програми:",
-				info_alina: "Аліна Гончарова",
-				info_telephone: "Телефон:",
-				info_numero: "Україна:+380669605822 Франція:+33768655519" , 
-				info_email: "Електронна пошта:",
-				info_mail: " cddf.contact@gmail.com",
+                info_coordinant: "Координатор програми:",
+                info_alina: "Аліна Гончарова",
+                info_telephone: "Телефон:",
+                info_numero: "Україна: +380669605822 Франція: +33768655519",
+                info_email: "Електронна пошта:",
+                info_mail: "cddf.contact@gmail.com",
                 category_consulting: "КОНСУЛЬТАЦІЇ",
                 service2_title: "Консультаційна діяльність",
                 service2_subtitle: "Персональний супровід у вирішенні ваших питань",
@@ -1346,12 +1114,6 @@
                 consulting4_item1: "Розуміння системи працевлаштування",
                 consulting4_item2: "Статуси salarié, talent та інші",
                 consulting4_item3: "Стратегічне планування кар'єри",
-                consulting5_title: "Навчання для підприємців",
-                consulting5_text: "Я пояснюю, як створити приватного підприємця, обрати правову форму та аргументувати бізнес-проєкт.",
-                consulting5_item1: "Створення micro-entrepreneur",
-                consulting5_item2: "Вибір правової форми бізнесу",
-                consulting5_item3: "Аргументація бізнес-проєкту",
-                consulting5_item4: "Залучаю досвідчених адвокатів за потреби",
                 cta_title: "Готові розпочати?",
                 cta_text: "Зв'яжіться зі мною для детальної консультації та обговорення ваших потреб",
                 btn_contact: "Записатися на консультацію",
@@ -1391,19 +1153,20 @@
                 module2_item6: "Droit fiscal européen",
                 program_info_title: "Informations sur le programme",
                 info_volume: "Volume :",
-				info_heure: "3 Crédits ECTS (180 heures)",
+                info_heure: "3 Crédits ECTS (180 heures)",
                 info_format: "Format :",
                 info_format_online: "À distance (ZOOM)",
                 info_document: "Document :",
-                info_certificate: "Certificat européen de perfectionnement professionneL (France)",
-				info_coordinant: "Coordinateur du programme: ",
-				info_alina: "Alina Goncharova",
-				info_telephone: "Téléphone :" ,
-				info_numero: "Ukraine:+380669605822 France:+33768655519 ",
-				info_email: "E-mail : ",
-				info_mail: "cddf.contact@gmail.com" ,
+                info_certificate: "Certificat européen de perfectionnement professionnel (France)",
+                info_coordinant: "Coordinateur du programme :",
+                info_alina: "Alina Goncharova",
+                info_telephone: "Téléphone :",
+                info_numero: "Ukraine: +380669605822 France: +33768655519",
+                info_email: "E-mail :",
+                info_mail: "cddf.contact@gmail.com",
+                category_consulting: "FORMATIONS",
                 service2_title: "Activité de formation",
-                service2_subtitle: "Accompagnement personnalisé dans la résolution de vos questions ",
+                service2_subtitle: "Accompagnement personnalisé dans la résolution de vos questions",
                 service2_intro_title: "Approche pédagogique",
                 service2_intro_text: "Je vous apprends à comprendre le droit français pour que vous puissiez prendre des décisions en toute confiance de manière autonome.",
                 consulting1_title: "Formation au parcours migratoire",
@@ -1426,12 +1189,6 @@
                 consulting4_item1: "Compréhension du système d'emploi",
                 consulting4_item2: "Statuts salarié, talent et autres",
                 consulting4_item3: "Planification stratégique de carrière",
-                consulting5_title: "Formation pour entrepreneurs",
-                consulting5_text: "J'explique comment créer une micro-entreprise, choisir la forme juridique et argumenter un projet commercial.",
-                consulting5_item1: "Création de micro-entrepreneur",
-                consulting5_item2: "Choix de la forme juridique d'entreprise",
-                consulting5_item3: "Argumentation du projet commercial",
-                consulting5_item4: "Recours à des avocats expérimentés si nécessaire",
                 cta_title: "Prêt à commencer ?",
                 cta_text: "Contactez-moi pour une consultation détaillée et discuter de vos besoins",
                 btn_contact: "Prendre rendez-vous",
@@ -1441,23 +1198,14 @@
 
         let currentLang = 'uk';
 
-        // ============================================
-        // CHANGE LANGUAGE
-        // ============================================
         function changeLanguage(lang) {
             currentLang = lang;
-            
-            // Update all buttons
             const allButtons = document.querySelectorAll('.language-switcher button');
             allButtons.forEach(btn => btn.classList.remove('active'));
-            
             const desktopBtn = document.getElementById('lang-' + lang);
             const mobileBtn = document.getElementById('lang-' + lang + '-mobile');
-            
             if (desktopBtn) desktopBtn.classList.add('active');
             if (mobileBtn) mobileBtn.classList.add('active');
-            
-            // Update all translatable elements
             document.querySelectorAll('[data-translate]').forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[lang] && translations[lang][key]) {
@@ -1466,9 +1214,6 @@
             });
         }
 
-        // ============================================
-        // INITIALIZE
-        // ============================================
         document.addEventListener('DOMContentLoaded', function() {
             changeLanguage('uk');
         });
