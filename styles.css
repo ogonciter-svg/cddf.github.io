@@ -350,7 +350,7 @@ nav {
 .hero-image {
     width: 450px;
     height: 550px;
-    background: url('logo.jpg') center/cover no-repeat;
+    background: url('logo.jpg') center/contain no-repeat;
     border-radius: 20px;
     box-shadow: 0 200px 60px rgba(0, 0, 0, 0.2);
     border: 5px solid #D4AF37;
