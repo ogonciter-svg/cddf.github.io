@@ -370,6 +370,79 @@ nav {
     object-fit: contain; 
     padding: 30px; /* Отступ внутри рамки, чтобы логотип не прижимался к краям */
     box-sizing: border-box;
+    /*HEEEEEROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO */
+.hero-section {
+    min-height: 100vh;
+    display: flex;         /* Змінюємо grid на flex для простішого центрування */
+    flex-direction: column;
+    justify-content: center; /* Центрування по вертикалі */
+    align-items: center;     /* Центрування по горизонталі */
+    text-align: center;      /* Вирівнювання тексту по центру */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 2rem;      /* Зменшили верхній паддінг, бо flex сам усе відцентрує */
+    box-sizing: border-box;
+}
+
+.hero-content {
+    padding: 2rem;
+    max-width: 800px;        /* Обмежуємо ширину, щоб текст не розповзався на весь екран */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: #000;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    animation: fadeInLeft 1s;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    color: #D4AF37;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+/* Якщо у вас кнопки знаходяться всередині контейнера для кнопок, 
+   цей код допоможе їм стати в один ряд по центру */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* --- Код для логотипу (залишаємо без змін, виправлено помилку в коментарі) --- */
+.hero-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInRight 1s;
+}
+
+.hero-image {
+    width: 450px;
+    height: 550px;
+    border-radius: 20px;
+    border: 5px solid #D4AF37;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    position: relative;
+    background-color: #ffffff; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;  
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    padding: 30px; 
+    box-sizing: border-box;
+}
 }
 
 /* ============================================ */
